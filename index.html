@@ -3,56 +3,368 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Neighbor Construction</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.5; }
-    header { padding: 32px 16px; background: #f3f3f3; }
-    main { padding: 16px; max-width: 900px; margin: 0 auto; }
-    .card { padding: 16px; border: 1px solid #ddd; border-radius: 10px; margin: 12px 0; }
-    h1 { margin: 0 0 8px; }
-    footer { padding: 16px; text-align: center; color: #666; }
-    a.button { display:inline-block; padding:10px 14px; border:1px solid #333; border-radius:8px; text-decoration:none; color:#333; }
-  </style>
+  <meta name="description" content="Wagler’s Amish Construction — honest craftsmanship for barns, sheds, decks, repairs, and more." />
+  <meta name="theme-color" content="#111827" />
+
+  <meta property="og:title" content="Wagler’s Amish Construction" />
+  <meta property="og:description" content="Amish craftsmanship, built to last. Call for an estimate." />
+  <meta property="og:type" content="website" />
+  <!-- Optional: add /assets/og-image.png later if you want a social preview image -->
+  <!-- <meta property="og:image" content="https://YOURDOMAIN.com/assets/og-image.png" /> -->
+
+  <title>Wagler’s Amish Construction</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%A0%EF%B8%8F%3C/text%3E%3C/svg%3E" />
 </head>
+
 <body>
-  <header>
-    <main>
-      <h1>Neighbor Construction</h1>
-      <p>Quality craftsmanship for barns, sheds, decks, repairs, and more.</p>
-      <p><strong>Call/Text:</strong> (555) 123-4567</p>
-      <p><a class="button" href="tel:15551234567">Call Now</a></p>
-    </main>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Wagler’s Amish Construction home">
+        <span class="brand-mark" aria-hidden="true">W</span>
+        <span class="brand-text">
+          <span class="brand-name">Wagler’s Amish Construction</span>
+          <span class="brand-tagline">Craftsmanship built to last</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <!-- PHONE NOTE:
+             You provided: 517-223-211 (9 digits). If there is a missing digit, update both:
+             1) the visible text
+             2) the tel: link digits
+        -->
+        <a class="btn btn-secondary" href="tel:517223211">Call: 517-223-211</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <div class="card">
-      <h2>Services</h2>
-      <ul>
-        <li>Barn & shed building</li>
-        <li>Decks & porches</li>
-        <li>Framing & repairs</li>
-        <li>Roofing & siding</li>
-      </ul>
-    </div>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="kicker">Amish craftsmanship • Straightforward estimates • Quality materials</p>
+          <h1>Built with care. Built to endure.</h1>
+          <p class="lead">
+            Wagler’s Amish Construction provides practical, well-built structures and repairs with a focus on
+            durability, honest workmanship, and clean job sites.
+          </p>
 
-    <div class="card">
-      <h2>Service Area</h2>
-      <p>Serving: [Your Town] and surrounding areas.</p>
-    </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request an Estimate</a>
+            <a class="btn btn-ghost" href="#services">View Services</a>
+          </div>
 
-    <div class="card">
-      <h2>Get a Quote</h2>
-      <p>Call or text: <strong>(555) 123-4567</strong></p>
-      <p>Email: <strong>you@example.com</strong></p>
-    </div>
+          <div class="trust-row" role="list" aria-label="Highlights">
+            <div class="trust-item" role="listitem">
+              <span class="trust-title">Quality First</span>
+              <span class="trust-sub">Details matter</span>
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="trust-title">Reliable</span>
+              <span class="trust-sub">Clear timelines</span>
+            </div>
+            <div class="trust-item" role="listitem">
+              <span class="trust-title">Local</span>
+              <span class="trust-sub">Serving nearby communities</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Quick contact card">
+          <div class="card">
+            <h2 class="card-title">Contact</h2>
+            <p class="card-text">
+              Call or email for availability and estimates.
+            </p>
+
+            <div class="contact-lines">
+              <div class="contact-line">
+                <span class="contact-label">Phone</span>
+                <a href="tel:517223211" class="contact-value">517-223-211</a>
+              </div>
+              <div class="contact-line">
+                <span class="contact-label">Email</span>
+                <a href="mailto:waglersamishconstruction@gmail.com" class="contact-value">
+                  waglersamishconstruction@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="btn btn-secondary full" href="#contact">Send a Message</a>
+              <a class="btn btn-ghost full" href="#gallery">See Our Work</a>
+            </div>
+
+            <p class="fineprint">
+              Responses typically within 1–2 business days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>
+            Common projects we help with. If you do not see your project listed, reach out.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="feature">
+            <h3>Outbuildings</h3>
+            <p>Barns, sheds, and utility buildings designed for function, strength, and long service life.</p>
+            <ul class="bullets">
+              <li>New builds</li>
+              <li>Repairs and upgrades</li>
+              <li>Framing and structural work</li>
+            </ul>
+          </article>
+
+          <article class="feature">
+            <h3>Decks & Porches</h3>
+            <p>Practical outdoor spaces built for everyday use and Midwestern weather.</p>
+            <ul class="bullets">
+              <li>Deck builds and rebuilds</li>
+              <li>Porch construction</li>
+              <li>Railings and steps</li>
+            </ul>
+          </article>
+
+          <article class="feature">
+            <h3>Repairs & Improvements</h3>
+            <p>Targeted repairs that restore safety, stop leaks, and extend the life of your structure.</p>
+            <ul class="bullets">
+              <li>Framing and sheathing</li>
+              <li>Doors, trim, and small carpentry</li>
+              <li>General fixes</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div class="callout-inner">
+            <div>
+              <h3>Estimates</h3>
+              <p>
+                Share a brief description, location, and photos if available. We will follow up to schedule a visit
+                or discuss next steps.
+              </p>
+            </div>
+            <a class="btn btn-primary" href="#contact">Get an Estimate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About Amish Craftsmanship</h2>
+          <p>
+            Work rooted in practicality, stewardship, and attention to detail.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <div class="prose">
+            <p>
+              Amish craftsmanship is commonly associated with careful joinery, sturdy materials, and a commitment
+              to doing the job correctly the first time. We focus on straightforward construction, solid framing,
+              and clean finishing so your project holds up for years.
+            </p>
+            <p>
+              Our approach is simple: clear communication, fair estimates, and workmanship we would stand behind
+              for our own families. If you value durability and a no-nonsense process, we would be glad to help.
+            </p>
+            <div class="badge-row" role="list" aria-label="Work principles">
+              <span class="badge" role="listitem">Quality materials</span>
+              <span class="badge" role="listitem">Strong framing</span>
+              <span class="badge" role="listitem">Respectful job sites</span>
+              <span class="badge" role="listitem">Practical design</span>
+            </div>
+          </div>
+
+          <div class="stats card">
+            <h3 class="card-title">What to expect</h3>
+            <ul class="checklist">
+              <li>Clear scope and estimate</li>
+              <li>Schedule discussed up front</li>
+              <li>Work done carefully and efficiently</li>
+              <li>Clean, respectful job site</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <p class="fineprint">
+              To keep costs low, this site is intentionally simple and fast—no expensive hosting or plugins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h2>Recent Work</h2>
+          <p>
+            Add photos as you have them. (You can replace these placeholders with real project images anytime.)
+          </p>
+        </div>
+
+        <div class="gallery">
+          <figure class="gallery-item">
+            <div class="placeholder" aria-hidden="true">
+              <span>Project Photo</span>
+            </div>
+            <figcaption>Outbuilding / Barn</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="placeholder" aria-hidden="true">
+              <span>Project Photo</span>
+            </div>
+            <figcaption>Deck / Porch</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="placeholder" aria-hidden="true">
+              <span>Project Photo</span>
+            </div>
+            <figcaption>Repairs / Improvements</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="placeholder" aria-hidden="true">
+              <span>Project Photo</span>
+            </div>
+            <figcaption>Custom Carpentry</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            Send a message and we will follow up. You can also call or email directly.
+          </p>
+        </div>
+
+        <div class="grid two contact-grid">
+          <div class="card">
+            <h3 class="card-title">Direct Contact</h3>
+
+            <div class="contact-lines">
+              <div class="contact-line">
+                <span class="contact-label">Phone</span>
+                <a href="tel:517223211" class="contact-value">517-223-211</a>
+              </div>
+              <div class="contact-line">
+                <span class="contact-label">Email</span>
+                <a href="mailto:waglersamishconstruction@gmail.com" class="contact-value">
+                  waglersamishconstruction@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="fineprint">
+              Tip: If you are requesting an estimate, include your location (town), project type, and any photos.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Message Form</h3>
+
+            <!-- IMPORTANT:
+                 GitHub Pages cannot send email by itself. Use a free form handler.
+                 Recommended: Formspree (free tier).
+                 1) Create a Formspree form
+                 2) Replace the action URL below with your Formspree endpoint (e.g. https://formspree.io/f/abcdwxyz)
+            -->
+            <form id="estimate-form" class="form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+              <label class="field">
+                <span>Name</span>
+                <input name="name" type="text" autocomplete="name" required />
+              </label>
+
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required />
+              </label>
+
+              <label class="field">
+                <span>Phone</span>
+                <input name="phone" type="tel" autocomplete="tel" />
+              </label>
+
+              <label class="field">
+                <span>Project details</span>
+                <textarea name="message" rows="6" required placeholder="Example: 12x16 shed in [town]. Hoping to start in spring."></textarea>
+              </label>
+
+              <!-- Helpful metadata -->
+              <input type="hidden" name="_subject" value="New website inquiry — Wagler’s Amish Construction" />
+              <input type="hidden" name="_redirect" value="thank-you.html" />
+
+              <button class="btn btn-primary full" type="submit">Send Message</button>
+
+              <p class="fineprint">
+                This form is protected by the form provider. No account passwords are collected here.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> Neighbor Construction
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Wagler’s Amish Construction</div>
+        <div class="footer-meta">
+          <a href="tel:517223211">517-223-211</a>
+          <span class="dot" aria-hidden="true">•</span>
+          <a href="mailto:waglersamishconstruction@gmail.com">waglersamishconstruction@gmail.com</a>
+        </div>
+        <div class="footer-small">
+          © <span id="year"></span> Wagler’s Amish Construction. All rights reserved.
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/script.js"></script>
 </body>
 </html>
