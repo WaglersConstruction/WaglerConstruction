@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neighbor Construction</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.5; }
+    header { padding: 32px 16px; background: #f3f3f3; }
+    main { padding: 16px; max-width: 900px; margin: 0 auto; }
+    .card { padding: 16px; border: 1px solid #ddd; border-radius: 10px; margin: 12px 0; }
+    h1 { margin: 0 0 8px; }
+    footer { padding: 16px; text-align: center; color: #666; }
+    a.button { display:inline-block; padding:10px 14px; border:1px solid #333; border-radius:8px; text-decoration:none; color:#333; }
+  </style>
+</head>
+<body>
+  <header>
+    <main>
+      <h1>Neighbor Construction</h1>
+      <p>Quality craftsmanship for barns, sheds, decks, repairs, and more.</p>
+      <p><strong>Call/Text:</strong> (555) 123-4567</p>
+      <p><a class="button" href="tel:15551234567">Call Now</a></p>
+    </main>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Services</h2>
+      <ul>
+        <li>Barn & shed building</li>
+        <li>Decks & porches</li>
+        <li>Framing & repairs</li>
+        <li>Roofing & siding</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Service Area</h2>
+      <p>Serving: [Your Town] and surrounding areas.</p>
+    </div>
+
+    <div class="card">
+      <h2>Get a Quote</h2>
+      <p>Call or text: <strong>(555) 123-4567</strong></p>
+      <p>Email: <strong>you@example.com</strong></p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Neighbor Construction
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
