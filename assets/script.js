@@ -1,49 +1,80 @@
 (function () {
-  // Footer year
-  var yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  "use strict";
 
-  // Mobile nav
+  var year = document.getElementById("year");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.getElementById("nav-menu");
+  var menuLabel = toggle ? toggle.querySelector(".sr-only") : null;
+
+  function setMenu(open) {
+    if (!toggle || !menu) return;
+
+    menu.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("nav-open", open);
+
+    if (menuLabel) {
+      menuLabel.textContent = open ? "Close navigation menu" : "Open navigation menu";
+    }
+  }
 
   if (toggle && menu) {
     toggle.addEventListener("click", function () {
-      var isOpen = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
     });
 
-    // Close menu when clicking a link (mobile)
-    menu.addEventListener("click", function (e) {
-      var target = e.target;
-      if (target && target.tagName === "A") {
-        menu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+    menu.addEventListener("click", function (event) {
+      if (event.target.closest("a")) {
+        setMenu(false);
       }
     });
 
-    // Close menu when clicking outside
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", function (event) {
       if (!menu.classList.contains("open")) return;
-      if (e.target === toggle || toggle.contains(e.target)) return;
-      if (menu.contains(e.target)) return;
-      menu.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
+      if (menu.contains(event.target) || toggle.contains(event.target)) return;
+      setMenu(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && menu.classList.contains("open")) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) {
+        setMenu(false);
+      }
     });
   }
 
-  // Smooth scroll for internal anchors
-  var internalLinks = document.querySelectorAll('a[href^="#"]');
-  internalLinks.forEach(function (a) {
-    a.addEventListener("click", function (e) {
-      var href = a.getAttribute("href");
-      if (!href || href === "#") return;
-      var el = document.querySelector(href);
-      if (!el) return;
+  // Load project photos only when their expected files exist. If a file is
+  // absent, the accessible, styled placeholder remains in place.
+  document.querySelectorAll(".gallery-item[data-image]").forEach(function (item) {
+    var source = item.getAttribute("data-image");
+    var alt = item.getAttribute("data-alt") || "Wagler's Amish Construction project";
+    var media = item.querySelector(".gallery-media");
 
-      e.preventDefault();
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.pushState(null, "", href);
+    if (!source || !media) return;
+
+    var image = new Image();
+    image.className = "project-photo";
+    image.alt = alt;
+    image.loading = "lazy";
+    image.decoding = "async";
+
+    image.addEventListener("load", function () {
+      var placeholder = media.querySelector(".photo-placeholder");
+      if (placeholder) placeholder.hidden = true;
+      media.appendChild(image);
+      item.classList.add("has-photo");
     });
+
+    image.src = source;
   });
 })();

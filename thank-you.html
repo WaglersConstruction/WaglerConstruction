@@ -2,37 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Thank you — your message has been sent to Wagler’s Amish Construction." />
-  <title>Thank You — Wagler’s Amish Construction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Thank you for contacting Wagler's Amish Construction about your project." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#405238" />
+  <title>Thank You | Wagler's Amish Construction</title>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
-  <main class="container" style="padding: 72px 16px;">
-    <div class="card" style="max-width: 720px; margin: 0 auto;">
-      <h1 class="card-title">Thank you</h1>
-      <p class="card-text">
-        Your message has been sent. We will follow up as soon as we are able.
-      </p>
+<body class="thank-you-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-      <div class="divider"></div>
-
-      <p class="card-text">
-        If you need to reach us directly:
-      </p>
-      <p class="card-text">
-        <strong>Phone:</strong> <a href="tel:517223211">517-223-211</a><br />
-        <strong>Email:</strong> <a href="mailto:waglersamishconstruction@gmail.com">waglersamishconstruction@gmail.com</a>
-      </p>
-
-      <div style="margin-top: 18px;">
-        <a class="btn btn-primary" href="index.html">Back to Home</a>
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <p>Traditional craftsmanship for Michigan homes and properties</p>
+      <div class="utility-contact" aria-label="Telephone numbers">
+        <a href="tel:+15172526769">517-252-6769</a>
+        <span aria-hidden="true">|</span>
+        <a href="tel:+15172238211">517-223-8211</a>
       </div>
     </div>
-  </main>
+  </div>
 
-  <script>
-    document.getElementById("year") && (document.getElementById("year").textContent = new Date().getFullYear());
-  </script>
+  <main id="main" class="container thank-you-main">
+    <section class="thank-you-card" aria-labelledby="thank-you-title">
+      <div class="thank-you-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow">Message received</p>
+      <h1 id="thank-you-title">Thank you.</h1>
+      <p>Your estimate request has been sent to Wagler's Amish Construction. We will review the details and follow up as soon as we are able.</p>
+
+      <div class="thank-you-contact" aria-label="Direct contact options">
+        <div>
+          <span>Primary phone</span>
+          <a href="tel:+15172526769">517-252-6769</a>
+        </div>
+        <div>
+          <span>Secondary phone</span>
+          <a href="tel:+15172238211">517-223-8211</a>
+        </div>
+      </div>
+
+      <a class="btn btn-primary btn-large" href="index.html">Return to the Website</a>
+    </section>
+  </main>
 </body>
 </html>
