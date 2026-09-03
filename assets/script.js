@@ -53,34 +53,98 @@
     });
   }
 
-  // Load project photos only when their expected files exist. If a file is
-  // absent, the accessible, styled placeholder remains in place.
-  document.querySelectorAll(".gallery-item[data-image]").forEach(function (item) {
-    var source = item.getAttribute("data-image");
-    var alt = item.getAttribute("data-alt") || "Wagler's Amish Construction project";
-    var media = item.querySelector(".gallery-media");
+  var gallery = document.getElementById("recent-project-gallery");
+  var galleryStatus = document.getElementById("gallery-status");
 
-    if (!source || !media) return;
+  if (gallery) {
+    var galleryApi = gallery.getAttribute("data-gallery-api");
+    var supportedPhoto = /\.(avif|bmp|gif|jpe?g|jfif|png|webp)$/i;
+    var extensionPreference = ["png", "webp", "avif", "jpg", "jpeg", "jfif", "gif", "bmp"];
 
-    var image = new Image();
-    image.className = "project-photo";
-    image.alt = alt;
-    image.loading = "lazy";
-    image.decoding = "async";
+    function projectTitle(filename) {
+      var title = filename
+        .replace(/\.[^.]+$/, "")
+        .replace(/[_-]+/g, " ")
+        .replace(/\b(img|dsc|pxl)\s*\d+\b/gi, "")
+        .replace(/\b\w/g, function (letter) { return letter.toUpperCase(); })
+        .replace(/\s+/g, " ")
+        .trim();
 
-    image.addEventListener("load", function () {
-      var placeholder = media.querySelector(".photo-placeholder");
-      if (placeholder) placeholder.hidden = true;
-      item.classList.add("has-photo");
-    });
+      if (!title || /^Project\s*\d*$/i.test(title)) return "Recent Project";
+      return title;
+    }
 
-    image.addEventListener("error", function () {
-      image.remove();
-    });
+    function renderGallery(files) {
+      var uniqueFiles = new Map();
 
-    // A lazy-loaded image must be in the document before the browser will
-    // request it. Keep the placeholder visible until loading succeeds.
-    media.appendChild(image);
-    image.src = source;
-  });
+      files
+        .filter(function (file) {
+          return file.type === "file" && supportedPhoto.test(file.name) && file.download_url;
+        })
+        .sort(function (a, b) {
+          var aExtension = a.name.split(".").pop().toLowerCase();
+          var bExtension = b.name.split(".").pop().toLowerCase();
+          return extensionPreference.indexOf(aExtension) - extensionPreference.indexOf(bExtension);
+        })
+        .forEach(function (file) {
+          if (!uniqueFiles.has(file.sha)) uniqueFiles.set(file.sha, file);
+        });
+
+      var photos = Array.from(uniqueFiles.values()).sort(function (a, b) {
+        return b.name.localeCompare(a.name, undefined, { numeric: true, sensitivity: "base" });
+      });
+
+      if (!photos.length) throw new Error("No supported project photos found");
+
+      var fragment = document.createDocumentFragment();
+
+      photos.forEach(function (file) {
+        var title = projectTitle(file.name);
+        var item = document.createElement("figure");
+        var media = document.createElement("div");
+        var image = new Image();
+        var caption = document.createElement("figcaption");
+        var strong = document.createElement("strong");
+        var detail = document.createElement("span");
+
+        item.className = "gallery-item";
+        media.className = "gallery-media";
+        image.className = "project-photo";
+        image.src = file.download_url;
+        image.alt = title + " by Wagler's Amish Construction in Michigan";
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("error", function () { item.remove(); });
+        strong.textContent = title;
+        detail.textContent = "Recent project";
+
+        media.appendChild(image);
+        caption.appendChild(strong);
+        caption.appendChild(detail);
+        item.appendChild(media);
+        item.appendChild(caption);
+        fragment.appendChild(item);
+      });
+
+      gallery.replaceChildren(fragment);
+      if (galleryStatus) galleryStatus.textContent = "";
+    }
+
+    if (galleryApi && window.fetch) {
+      fetch(galleryApi, {
+        headers: { Accept: "application/vnd.github+json" },
+        cache: "no-store"
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Gallery request failed");
+          return response.json();
+        })
+        .then(renderGallery)
+        .catch(function () {
+          if (galleryStatus) {
+            galleryStatus.textContent = "Showing the latest available project photo. Please check back for more.";
+          }
+        });
+    }
+  }
 })();

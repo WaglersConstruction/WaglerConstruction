@@ -69,7 +69,7 @@
         <ul id="nav-menu" class="nav-menu">
           <li><a href="#roofing">Metal Roofing</a></li>
           <li><a href="#decks">Decks & Porches</a></li>
-          <li><a href="#work">Our Work</a></li>
+          <li><a href="#work">Recent Projects</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -196,46 +196,24 @@
       <div class="container">
         <div class="section-heading split-heading">
           <div>
-            <p class="eyebrow">Selected projects</p>
-            <h2 id="work-title">Our Work</h2>
+            <p class="eyebrow">Craftsmanship in the field</p>
+            <h2 id="work-title">Recent Projects</h2>
           </div>
-         
+          <p>A look at recent metal roofing, deck, porch, and carpentry projects completed for Michigan property owners.</p>
         </div>
 
-        <div class="gallery" aria-label="Wagler's Amish Construction project gallery">
-          <figure class="gallery-item gallery-wide" data-image="assets/images/project-01.png" data-alt="Finished residential metal roof installation on a Michigan home">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for a finished residential metal roof installation"><span>Metal Roofing</span></div></div>
-            <figcaption><strong>Residential Metal Roof</strong><span>Installation</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-02.png" data-alt="Metal roof replacement with neatly aligned panels and ridge cap">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for a metal roof replacement"><span>Roof Replacement</span></div></div>
-            <figcaption><strong>Roof Replacement</strong><span>Metal roofing</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-03.png" data-alt="Detailed metal roof trim and flashing installation">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for metal roof trim and flashing"><span>Roof Details</span></div></div>
-            <figcaption><strong>Trim & Flashing</strong><span>Roof details</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-04.png" data-alt="New metal roof installed on a garage or outbuilding">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for an outbuilding metal roof"><span>Outbuilding Roof</span></div></div>
-            <figcaption><strong>Garage or Outbuilding</strong><span>Metal roof</span></figcaption>
-          </figure>
-          <figure class="gallery-item gallery-wide" data-image="assets/images/project-05.png" data-alt="Newly constructed wood deck with stairs and railing">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for a new wood deck"><span>Deck Construction</span></div></div>
-            <figcaption><strong>New Deck Build</strong><span>Custom construction</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-06.png" data-alt="Rebuilt residential deck with new deck boards and railings">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for a rebuilt residential deck"><span>Deck Rebuild</span></div></div>
-            <figcaption><strong>Deck Rebuild</strong><span>Replacement</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-07.png" data-alt="Porch steps and entry landing built for a Michigan home">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for porch steps and landing"><span>Porch & Steps</span></div></div>
-            <figcaption><strong>Porch & Landing</strong><span>Carpentry</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-image="assets/images/project-08.png" data-alt="Finished deck railing and carpentry detail">
-            <div class="gallery-media"><div class="photo-placeholder" role="img" aria-label="Project photo placeholder for finished deck railing"><span>Finish Carpentry</span></div></div>
-            <figcaption><strong>Rails & Finish Work</strong><span>Deck details</span></figcaption>
+        <p class="gallery-status" id="gallery-status" role="status">Loading recent projects&hellip;</p>
+        <div class="gallery" id="recent-project-gallery"
+          data-gallery-api="https://api.github.com/repos/WaglersConstruction/WaglerConstruction/contents/assets/images?ref=main"
+          aria-label="Recent Wagler's Amish Construction projects">
+          <figure class="gallery-item">
+            <div class="gallery-media">
+              <img class="project-photo" src="assets/images/project-02.png" alt="Recent Wagler's Amish Construction project in Michigan" width="1536" height="1024" loading="lazy" decoding="async" />
+            </div>
+            <figcaption><strong>Recent Project</strong><span>Michigan craftsmanship</span></figcaption>
           </figure>
         </div>
+        <noscript><p class="gallery-note">JavaScript must be enabled to load the complete recent-project gallery.</p></noscript>
       </div>
     </section>
 
@@ -347,7 +325,7 @@
         <a href="#roofing">Metal Roofing</a>
         <a href="#decks">Decks & Porches</a>
         <a href="#about">Carpentry & Repairs</a>
-        <a href="#work">Our Work</a>
+        <a href="#work">Recent Projects</a>
       </div>
 
       <div class="footer-column footer-contact">
@@ -364,6 +342,6 @@
     </div>
   </footer>
 
-  <script src="assets/script.js?v=2"></script>
+  <script src="assets/script.js?v=3"></script>
 </body>
 </html>
