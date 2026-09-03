@@ -71,10 +71,16 @@
     image.addEventListener("load", function () {
       var placeholder = media.querySelector(".photo-placeholder");
       if (placeholder) placeholder.hidden = true;
-      media.appendChild(image);
       item.classList.add("has-photo");
     });
 
+    image.addEventListener("error", function () {
+      image.remove();
+    });
+
+    // A lazy-loaded image must be in the document before the browser will
+    // request it. Keep the placeholder visible until loading succeeds.
+    media.appendChild(image);
     image.src = source;
   });
 })();
